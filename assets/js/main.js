@@ -25,9 +25,19 @@ const containerElement = document.querySelector(".container");
 const levelEl = document.getElementById("levels");
 
 
-
 //applico event listener al click sul button
-generateElement.addEventListener("click", function(){
+generateElement.addEventListener("click", gridGen);
+
+//funzioni
+
+function divGenerator (num){
+    const cellElement = document.createElement("div");
+    cellElement.classList.add("cell");
+    cellElement.insertAdjacentText("beforeend", num);
+    return cellElement;
+}
+
+function gridGen(){
     const level = levelEl.value;
     let maxCellsNumb;
     let rowLenght;
@@ -50,13 +60,5 @@ generateElement.addEventListener("click", function(){
             console.log(cell.innerHTML);
         })
     }
-},{ once: true });
-
-//funzioni
-
-function divGenerator (num){
-    const cellElement = document.createElement("div");
-    cellElement.classList.add("cell");
-    cellElement.insertAdjacentText("beforeend", num);
-    return cellElement;
+generateElement.removeEventListener("click", gridGen);
 }
