@@ -22,11 +22,28 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed 
 const generateElement = document.querySelector("button.generate");
 //seleziono l'elemento della DOM dove inserirò le celle
 const containerElement = document.querySelector(".container");
-const maxCellsNumb = 100;
+const levelEl = document.getElementById("levels");
+
+
+
 //applico event listener al click sul button
 generateElement.addEventListener("click", function(){
+    const level = levelEl.value;
+    let maxCellsNumb;
+    let rowLenght;
+    if(level == "1"){
+        maxCellsNumb = 100;
+        rowLenght = 10;
+    } else if(level == "2"){
+        maxCellsNumb = 81;
+        rowLenght = 9;
+    } else {
+        maxCellsNumb = 49;
+        rowLenght = 7;
+    }
     for (let i = 0; i< maxCellsNumb; i++){
         const cell = divGenerator(i + 1);
+        cell.style.setProperty("width", `calc(100% / ${rowLenght})`);
         containerElement.insertAdjacentElement("beforeend", cell);
         cell.addEventListener("click", function(){
             cell.classList.toggle("light_blue")      
