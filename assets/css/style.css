@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    text-align: center;
+    margin: 3rem auto;
+}
+.container{
+    max-width: 1200px;
+    margin: 3rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell{
+    width: calc( 100% / 10);
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+}
+
+.light_blue{
+    background-color: rgb(90, 170, 197);
+}
