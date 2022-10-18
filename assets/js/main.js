@@ -38,19 +38,17 @@ function divGenerator (num){
 }
 
 function gridGen(){
+    containerElement.innerHTML= "";
     const level = levelEl.value;
     let maxCellsNumb;
-    let rowLenght;
     if(level == "1"){
         maxCellsNumb = 100;
-        rowLenght = 10;
     } else if(level == "2"){
         maxCellsNumb = 81;
-        rowLenght = 9;
     } else {
         maxCellsNumb = 49;
-        rowLenght = 7;
     }
+    let rowLenght= Math.sqrt(maxCellsNumb);
     for (let i = 0; i< maxCellsNumb; i++){
         const cell = divGenerator(i + 1);
         cell.style.setProperty("width", `calc(100% / ${rowLenght})`);
@@ -60,5 +58,4 @@ function gridGen(){
             console.log(cell.innerHTML);
         })
     }
-generateElement.removeEventListener("click", gridGen);
 }
